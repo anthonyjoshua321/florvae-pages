@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO (mirrored from source product page) -->
+  <title>Everlove Mascara - For Mature Lashes</title>
+  <meta name="description" content="Everlove Mascara for mature lashes: up to 5x more length and volume, no clumping, no irritation. Water-resistant tubing formula that removes with warm water. 30-day money-back guarantee.">
+  <link rel="canonical" href="https://florvae.com/everlove/buy/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Everlove Mascara - For Mature Lashes">
+  <meta property="og:description" content="The only mascara truly made for mature lashes. Up to 5x more length &amp; volume, no irritation.">
+  <meta property="og:image" content="https://florvae.com/assets/everlove/sp-gallery-1.webp">
+  <meta property="og:url" content="https://florvae.com/everlove/buy/">
+
+  <!-- PINTEREST_VERIFICATION -->
+
+  <link rel="icon" href="/assets/everlove/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared/base.css">
+
+  <!-- =============================================================
+       SECTION: page-specific styles (sales page)
+       ============================================================= -->
+  <style>
+    .buybox { display: grid; grid-template-columns: 1fr; gap: 26px; padding-top: 24px; }
+    @media (min-width: 900px) { .buybox { grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; } }
+
+    /* gallery */
+    .gallery__main { border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-soft); }
+    .gallery__main img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+    .gallery__thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 8px; }
+    .gallery__thumbs button { border: 2px solid transparent; border-radius: 8px; overflow: hidden; padding: 0; background: var(--bg-soft); }
+    .gallery__thumbs button.is-active { border-color: var(--accent); }
+    .gallery__thumbs img { aspect-ratio: 1/1; object-fit: cover; }
+    @media (min-width: 900px) { .gallery { position: sticky; top: 76px; } }
+
+    /* product info */
+    .rating-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+    .prod-title { font-size: 26px; font-weight: 800; margin: 8px 0 10px; }
+    .price-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+    .price-now { font-size: 30px; font-weight: 800; color: var(--ink); }
+    .price-was { font-size: 18px; color: var(--muted); text-decoration: line-through; }
+    .urgency { background: #fff4e5; border: 1px solid #f5d9a8; color: #8a5a00; border-radius: 8px; padding: 10px 12px; font-size: 13px; font-weight: 600; margin: 12px 0; }
+
+    /* 3 benefit icons */
+    .benefits3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; text-align: center; margin: 18px 0; }
+    .benefits3 img { width: 34px; height: 34px; margin: 0 auto 6px; object-fit: contain; }
+    .benefits3 span { font-size: 12px; font-weight: 600; line-height: 1.35; display: block; }
+
+    /* variant selector */
+    .opt-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 16px 0 8px; }
+    .swatches { display: flex; gap: 10px; }
+    .swatch { display: flex; align-items: center; gap: 8px; border: 2px solid var(--line); border-radius: 10px; padding: 9px 14px; font-weight: 600; font-size: 14px; background: #fff; }
+    .swatch .dot { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.15); }
+    .swatch.is-active { border-color: var(--accent); background: var(--accent-tint); }
+
+    /* bundle */
+    .bundles { display: grid; gap: 10px; margin: 14px 0; }
+    .bundle { position: relative; border: 2px solid var(--line); border-radius: 12px; padding: 14px 14px 14px 44px; cursor: pointer; }
+    .bundle::before { content: ""; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; border-radius: 50%; border: 2px solid #bbb; }
+    .bundle.is-active { border-color: var(--accent); background: var(--accent-tint); }
+    .bundle.is-active::before { border-color: var(--accent); background: radial-gradient(var(--accent) 40%, transparent 45%); }
+    .bundle__row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .bundle__name { font-weight: 700; }
+    .bundle__tag { font-size: 11px; font-weight: 700; color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 8px; }
+    .bundle__price { font-weight: 800; }
+    .bundle__price s { color: var(--muted); font-weight: 500; font-size: 13px; margin-left: 4px; }
+    .bundle__perks { font-size: 12px; color: var(--accent-dark); margin-top: 6px; font-weight: 600; }
+
+    /* payments */
+    .payments { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 12px 0 4px; }
+    .payments .pay { font-size: 10px; font-weight: 800; letter-spacing: .03em; color: #555; background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: 4px 7px; }
+
+    /* trust badges */
+    .trust-badges { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; text-align: center; margin: 20px 0; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .trust-badges img { height: 46px; margin: 0 auto 6px; object-fit: contain; }
+    .trust-badges span { font-size: 12px; font-weight: 600; }
+
+    /* reviews */
+    .reviews { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 700px) { .reviews { grid-template-columns: repeat(2,1fr); } }
+    .review { display: flex; gap: 12px; background: var(--bg-soft); border-radius: 12px; padding: 14px; }
+    .review img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex: none; }
+    .review .name { font-weight: 700; font-size: 14px; }
+    .review .stars { font-size: 13px; }
+    .review p { font-size: 13px; margin: 4px 0 0; color: #333; }
+
+    /* cross-sell */
+    .cross { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .cross__card { border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; }
+    .cross__card img { border-radius: 8px; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 8px; }
+    .cross__name { font-size: 13px; font-weight: 700; min-height: 34px; }
+    .cross__price { font-size: 14px; font-weight: 700; margin: 4px 0 8px; }
+    .cross__price s { color: var(--muted); font-weight: 500; font-size: 12px; }
+    .cross__card .btn { font-size: 12px; padding: 9px 12px; width: 100%; }
+    @media (max-width: 560px) { .cross { grid-template-columns: 1fr; } .cross__card { display: grid; grid-template-columns: 90px 1fr; gap: 12px; text-align: left; align-items: center; } .cross__card img { margin: 0; } }
+
+    /* numbered benefit blocks */
+    .bblock { padding: 26px 0; border-bottom: 1px solid var(--line); }
+    .bblock__num { font-size: 40px; font-weight: 800; color: var(--accent-tint); line-height: 1; }
+    .bblock h3 { font-size: 22px; margin: 2px 0 14px; }
+    .bblock__img { border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 16px; }
+    .feature-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .feature-list li { position: relative; padding-left: 30px; margin-bottom: 10px; font-weight: 600; }
+    .feature-list li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    @media (min-width: 768px) {
+      .bblock { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+      .bblock__media { order: 2; }
+      .bblock:nth-child(even) .bblock__media { order: 0; }
+      .bblock__img { margin: 0; }
+    }
+
+    /* ingredient comparison */
+    .ing-head { text-align: center; }
+    .ing-cols { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .ing-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
+    .ing-card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+    .ing-card img { aspect-ratio: 16/10; object-fit: cover; }
+    .ing-card__body { padding: 12px 14px 16px; }
+    .ing-card__cat { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); }
+    .ing-card__name { font-size: 17px; font-weight: 800; margin: 2px 0 8px; }
+    .ing-card ul { list-style: none; padding: 0; margin: 0; }
+    .ing-card li { position: relative; padding-left: 20px; font-size: 13px; margin-bottom: 5px; }
+    .ing-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+    .ing-compare { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .ing-compare div { flex: 1 1 200px; border-radius: 12px; padding: 14px; font-weight: 600; font-size: 13px; }
+    .ing-compare .in { background: var(--accent-tint); border: 1px solid #dcc7ef; }
+    .ing-compare .out { background: #f6f6f6; border: 1px solid var(--line); color: var(--muted); }
+
+    /* FAQ accordion */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq__item { border-bottom: 1px solid var(--line); }
+    .faq__q { width: 100%; background: none; border: none; text-align: left; font-family: inherit; font-size: 16px; font-weight: 600; padding: 16px 34px 16px 0; position: relative; color: var(--ink); }
+    .faq__q::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--accent); font-weight: 400; }
+    .faq__item.is-open .faq__q::after { content: "–"; }
+    .faq__a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq__a p { padding: 0 0 16px; margin: 0; color: #444; font-size: 15px; }
+
+    /* guarantee */
+    .guarantee { background: var(--bg-soft); text-align: center; }
+    .guarantee img { width: 110px; margin: 0 auto 14px; }
+
+    /* bottom trust row */
+    .trust-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; text-align: center; }
+    .trust-row svg { width: 30px; height: 30px; stroke: var(--accent); margin: 0 auto 8px; display: block; fill: none; stroke-width: 1.6; }
+    .trust-row strong { display: block; font-size: 14px; margin-bottom: 3px; }
+    .trust-row p { font-size: 12px; color: var(--muted); margin: 0; }
+    @media (max-width: 560px) { .benefits3 span { font-size: 11px; } }
+  </style>
+</head>
+<body>
+
+  <!-- Checkout config: REPLACE the placeholder below with your real Shopify cart permalink / checkout URL -->
+  <script>
+    /* ============================================================
+       ▶▶  CHECKOUT_URL PLACEHOLDER  —  REPLACE BEFORE GOING LIVE  ◀◀
+       Every "Add to Cart" button sends the buyer here.
+       Use a Shopify cart permalink, e.g.
+         https://facelove-cosmetics.com/cart/VARIANT_ID:1
+       or the live product URL.
+       ------------------------------------------------------------
+       (Optional) Per-color checkout: fill BOTH variant IDs to make
+       the color swatch change the destination variant.
+       ============================================================ */
+    window.CHECKOUT_URL = "REPLACE_WITH_CHECKOUT_URL";
+    window.CHECKOUT_VARIANTS = { "Intense Black": "", "Balm Brown": "" };
+  </script>
+
+  <!-- SECTION: announcement bar -->
+  <div class="announce">
+    <div class="announce__track">
+      <div class="announce__msg">🍂 Fall Sale — Up to 60% Off</div>
+      <div class="announce__msg">🚚 Free shipping on every order!</div>
+    </div>
+  </div>
+
+  <!-- SECTION: minimal header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__back" href="/everlove/" aria-label="Back to article">‹</a>
+      <a class="site-header__logo" href="/everlove/buy/" aria-label="Everlove home">
+        <img src="/assets/everlove/logo.webp" alt="Facelove Cosmetics" width="120" height="30">
+      </a>
+    </div>
+  </header>
+
+  <main class="container container--wide">
+
+    <!-- SECTION: buy box (gallery + product info) -->
+    <div class="buybox">
+
+      <!-- gallery -->
+      <div class="gallery" data-gallery>
+        <div class="gallery__main">
+          <img data-main src="/assets/everlove/sp-gallery-1.webp" alt="Everlove Mascara - For Mature Lashes" width="800" height="800" fetchpriority="high">
+        </div>
+        <div class="gallery__thumbs">
+          <button data-thumb class="is-active" data-src="/assets/everlove/sp-gallery-1.webp" aria-label="View image 1"><img src="/assets/everlove/sp-gallery-1.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-2.webp" aria-label="View image 2"><img loading="lazy" src="/assets/everlove/sp-gallery-2.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-3.webp" aria-label="View image 3"><img loading="lazy" src="/assets/everlove/sp-gallery-3.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-4.webp" aria-label="View image 4"><img loading="lazy" src="/assets/everlove/sp-gallery-4.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-5.webp" aria-label="View image 5"><img loading="lazy" src="/assets/everlove/sp-gallery-5.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-6.webp" aria-label="View image 6"><img loading="lazy" src="/assets/everlove/sp-gallery-6.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-7.webp" aria-label="View image 7"><img loading="lazy" src="/assets/everlove/sp-gallery-7.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-8.webp" aria-label="View image 8"><img loading="lazy" src="/assets/everlove/sp-gallery-8.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-9.webp" aria-label="View image 9"><img loading="lazy" src="/assets/everlove/sp-gallery-9.webp" alt="" width="120" height="120"></button>
+          <button data-thumb data-src="/assets/everlove/sp-gallery-10.webp" aria-label="View image 10"><img loading="lazy" src="/assets/everlove/sp-gallery-10.webp" alt="" width="120" height="120"></button>
+        </div>
+      </div>
+
+      <!-- product info -->
+      <div class="prod-info">
+        <div class="rating-row"><span class="stars">★★★★★</span> <span>4.9 · 2,300+ verified reviews</span></div>
+        <h1 class="prod-title">Everlove Mascara — For Mature Lashes</h1>
+        <div class="price-row">
+          <span class="price-now">$29.95</span>
+          <span class="price-was">$60.00</span>
+          <span class="pill">60% OFF</span>
+        </div>
+        <div class="urgency">⏳ Almost sold out — only a limited number from this production batch are still available.</div>
+
+        <!-- 3 benefit icons -->
+        <div class="benefits3">
+          <div><img src="/assets/everlove/sp-icon-shipping.webp" alt=""><span>Free shipping on every order</span></div>
+          <div><img src="/assets/everlove/sp-icon-lashes.webp" alt=""><span>Up to 5x more length &amp; volume</span></div>
+          <div><img src="/assets/everlove/sp-icon-plant.webp" alt=""><span>No irritation, no panda eyes</span></div>
+        </div>
+
+        <!-- color variant selector -->
+        <div class="opt-label">Color</div>
+        <div class="swatches" data-variant>
+          <button class="swatch is-active" data-color="Intense Black"><span class="dot" style="background:#141414"></span> Intense Black</button>
+          <button class="swatch" data-color="Balm Brown"><span class="dot" style="background:#5a3a24"></span> Balm Brown</button>
+        </div>
+
+        <!-- bundle selector (WHILE SUPPLIES LAST) -->
+        <div class="opt-label">While supplies last</div>
+        <div class="bundles" data-bundles>
+          <div class="bundle" data-bundle>
+            <div class="bundle__row"><span class="bundle__name">1 Everlove Mascara</span><span class="bundle__price">$29.95 <s>$60.00</s></span></div>
+          </div>
+          <div class="bundle is-active" data-bundle>
+            <div class="bundle__row"><span class="bundle__name">2 Everlove Mascaras <span class="bundle__tag">SAVE $20</span></span><span class="bundle__price">$39.95 <s>$130.00</s></span></div>
+            <div class="bundle__perks">Limited-Time Offer · + FREE Lash Serum ($35) · + FREE Shipping · + FREE Mystery Gift ($10)</div>
+          </div>
+        </div>
+
+        <!-- add to cart + payments -->
+        <a class="btn btn--lg btn--block btn--pulse" href="#" data-add-to-cart>ADD TO CART</a>
+        <div class="payments">
+          <span class="pay">VISA</span><span class="pay">MASTERCARD</span><span class="pay">AMEX</span>
+          <span class="pay">PAYPAL</span><span class="pay">APPLE PAY</span><span class="pay">G PAY</span>
+          <span class="pay">MAESTRO</span><span class="pay">SHOP PAY</span>
+        </div>
+
+        <!-- trust badges -->
+        <div class="trust-badges">
+          <div><img src="/assets/everlove/sp-badge-shipping.webp" alt="Free shipping on every order"><span>Free shipping on every order</span></div>
+          <div><img src="/assets/everlove/sp-badge-moneyback.webp" alt="30-day money-back guarantee"><span>30-day money-back guarantee</span></div>
+          <div><img src="/assets/everlove/sp-badge-cruelty.webp" alt="Cruelty-Free Products"><span>Cruelty-Free Products</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: mini reviews -->
+    <section class="section">
+      <div class="reviews">
+        <div class="review">
+          <img loading="lazy" src="/assets/everlove/sp-review-1.webp" alt="Linda S." width="60" height="60">
+          <div><div class="name">Linda S.</div><div class="stars">★★★★★</div><p>“I naturally have short, thin eyelashes, and I've never had eyelashes as long as I do now – thanks to this mascara!”</p></div>
+        </div>
+        <div class="review">
+          <img loading="lazy" src="/assets/everlove/sp-review-2.webp" alt="Chloe N." width="60" height="60">
+          <div><div class="name">Chloe N.</div><div class="stars">★★★★★</div><p>“Finally, no more irritated eyes! Application is super easy with the metal brush, no clumps, waterproof, and yet removable with warm water. Highly recommended!”</p></div>
+        </div>
+        <div class="review">
+          <img loading="lazy" src="/assets/everlove/sp-review-3.webp" alt="Lois P." width="60" height="60">
+          <div><div class="name">Lois P.</div><div class="stars">★★★★★</div><p>“I was skeptical at first, but thanks to the risk-free trial, I tried it. Now I don't want any other mascara – my eyelashes have never looked so beautiful!”</p></div>
+        </div>
+        <div class="review">
+          <img loading="lazy" src="/assets/everlove/sp-review-4.webp" alt="Marge S." width="60" height="60">
+          <div><div class="name">Marge S.</div><div class="stars">★★★★★</div><p>“I never would have thought that a mascara could make such a difference! Luckily, I was able to test it risk-free – now I'm thrilled and will definitely stick with it.”</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: cross-sell -->
+    <section class="section">
+      <h2 class="center">80% also buy this:</h2>
+      <div class="cross">
+        <div class="cross__card">
+          <img loading="lazy" src="/assets/everlove/sp-cross-serum.webp" alt="IronBoost+ | Eyelash Serum" width="200" height="200">
+          <div>
+            <div class="cross__name">IronBoost+ | Eyelash Serum</div>
+            <div class="cross__price">$25.00 <s>$35.00</s> <span class="pill">SAVE 30%</span></div>
+            <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+          </div>
+        </div>
+        <div class="cross__card">
+          <img loading="lazy" src="/assets/everlove/sp-cross-eyeshadow.webp" alt="Shine & Define | Eye Shadow Stick" width="200" height="200">
+          <div>
+            <div class="cross__name">Shine &amp; Define | Eye Shadow Stick</div>
+            <div class="cross__price">$19.00</div>
+            <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+          </div>
+        </div>
+        <div class="cross__card">
+          <img loading="lazy" src="/assets/everlove/sp-cross-foundation.webp" alt="Color Changing Foundation Duo" width="200" height="200">
+          <div>
+            <div class="cross__name">Color Changing Foundation Duo</div>
+            <div class="cross__price">$45.00 <s>$50.00</s> <span class="pill">SAVE 10%</span></div>
+            <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: 5 numbered benefit blocks -->
+    <section class="section">
+      <h2 class="center">5 reasons why Everlove completely transforms mature eyelashes</h2>
+      <p class="center" style="color:var(--muted);max-width:560px;margin:0 auto 22px">Switch to the only mascara that's truly made for mature lashes.</p>
+
+      <article class="bblock">
+        <div class="bblock__media"><div class="bblock__img"><img loading="lazy" src="/assets/everlove/sp-b01.webp" alt="Long, full and youthful eyelashes – after just one coat!" width="800" height="800"></div></div>
+        <div class="bblock__body">
+          <div class="bblock__num">01</div>
+          <h3>Long, full and youthful eyelashes – after just one coat!</h3>
+          <ul class="feature-list">
+            <li>At least 3x more length and volume</li>
+            <li>Eyelash extension effect</li>
+            <li>Quick and easy to apply</li>
+            <li>Lasts up to 3x longer</li>
+          </ul>
+          <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+        </div>
+      </article>
+
+      <article class="bblock">
+        <div class="bblock__media"><div class="bblock__img"><img loading="lazy" src="/assets/everlove/sp-b02.webp" alt="Your eyelashes even grow while you wear them." width="800" height="800"></div></div>
+        <div class="bblock__body">
+          <div class="bblock__num">02</div>
+          <h3>Your eyelashes even grow while you wear them.</h3>
+          <ul class="feature-list">
+            <li>Repairs, maintains, and promotes growth</li>
+            <li>Natural, healthy ingredients</li>
+            <li>No harmful chemicals</li>
+            <li>Results after 4 weeks</li>
+          </ul>
+          <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+        </div>
+      </article>
+
+      <!-- SECTION: ingredient comparison (What we put in) -->
+      <div class="ing-head">
+        <h3 style="margin-top:14px">What we put in — vs. what's in other mascaras</h3>
+      </div>
+      <div class="ing-grid">
+        <div class="ing-card">
+          <img loading="lazy" src="/assets/everlove/sp-ing-keratin.webp" alt="Plant Keratin" width="300" height="188">
+          <div class="ing-card__body"><div class="ing-card__cat">Natural Repair</div><div class="ing-card__name">Plant Keratin</div>
+            <ul><li>Repairs micro-damage</li><li>Strengthens eyelashes</li><li>Shows fuller effect</li></ul></div>
+        </div>
+        <div class="ing-card">
+          <img loading="lazy" src="/assets/everlove/sp-ing-castor.webp" alt="Castor Oil" width="300" height="188">
+          <div class="ing-card__body"><div class="ing-card__cat">Nourishing Care</div><div class="ing-card__name">Castor Oil</div>
+            <ul><li>Fatty acid-rich</li><li>Deeply nourishes</li><li>Root-to-tip strength</li></ul></div>
+        </div>
+        <div class="ing-card">
+          <img loading="lazy" src="/assets/everlove/sp-ing-vite.webp" alt="Vitamin E" width="300" height="188">
+          <div class="ing-card__body"><div class="ing-card__cat">Nourishes &amp; Strengthens</div><div class="ing-card__name">Vitamin E</div>
+            <ul><li>Supports lash growth</li><li>Regenerates &amp; conditions</li><li>Protects from external factors</li></ul></div>
+        </div>
+        <div class="ing-card">
+          <img loading="lazy" src="/assets/everlove/sp-ing-peptide.webp" alt="Myristoyl Peptide-4" width="300" height="188">
+          <div class="ing-card__body"><div class="ing-card__cat">Strengthening</div><div class="ing-card__name">Myristoyl Peptide-4</div>
+            <ul><li>Fuller-looking lashes</li><li>Strengthens lash structure</li><li>Visibly denser look</li></ul></div>
+        </div>
+        <div class="ing-card">
+          <img loading="lazy" src="/assets/everlove/sp-ing-glycerin.webp" alt="Glycerin" width="300" height="188">
+          <div class="ing-card__body"><div class="ing-card__cat">Hydrating</div><div class="ing-card__name">Glycerin</div>
+            <ul><li>Intense hydration</li><li>Keeps lashes supple</li><li>Protects from dryness</li></ul></div>
+        </div>
+      </div>
+      <div class="ing-compare">
+        <div class="in">✓ Everlove: Castor Oil, Vitamin E, Peptide, Glycerin &amp; Plant Keratin — nourishing, lash-friendly ingredients.</div>
+        <div class="out">✕ Other mascaras: often PFAS, parabens &amp; sulfates that dry out and weaken mature lashes.</div>
+      </div>
+
+      <article class="bblock">
+        <div class="bblock__media"><div class="bblock__img"><img loading="lazy" src="/assets/everlove/sp-b03.webp" alt="Made for sensitive eyes" width="800" height="800"></div></div>
+        <div class="bblock__body">
+          <div class="bblock__num">03</div>
+          <h3>Made for sensitive eyes</h3>
+          <ul class="feature-list">
+            <li>Recommended by dermatologists</li>
+            <li>Hypoallergenic formula</li>
+            <li>Washable &amp; antibacterial brush</li>
+            <li>No more watery, red, or irritated eyes with the Everlove</li>
+          </ul>
+          <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+        </div>
+      </article>
+
+      <article class="bblock">
+        <div class="bblock__media"><div class="bblock__img"><img loading="lazy" src="/assets/everlove/sp-b04.webp" alt="24H Hold & Easy to Remove" width="800" height="800"></div></div>
+        <div class="bblock__body">
+          <div class="bblock__num">04</div>
+          <h3>24H Hold &amp; Easy to Remove</h3>
+          <ul class="feature-list">
+            <li>Lasts 24 hours without smudging</li>
+            <li>Clumping is impossible</li>
+            <li>Unique tubing technology</li>
+            <li>Removal without rubbing or pulling – only with warm water</li>
+          </ul>
+          <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+        </div>
+      </article>
+
+      <article class="bblock">
+        <div class="bblock__media"><div class="bblock__img"><img loading="lazy" src="/assets/everlove/sp-b05.webp" alt="Precise & well-thought-out" width="800" height="800"></div></div>
+        <div class="bblock__body">
+          <div class="bblock__num">05</div>
+          <h3>Precise &amp; well-thought-out</h3>
+          <ul class="feature-list">
+            <li>The brush, made for mature eyelashes</li>
+            <li>520 nanobristles capture even the smallest eyelashes</li>
+            <li>One line. Ergonomic handle.</li>
+            <li>Easy to use</li>
+          </ul>
+          <a class="btn" href="#" data-add-to-cart>ADD TO CART</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section class="section">
+      <h2 class="center">Frequently Asked Questions</h2>
+      <div class="faq" data-faq>
+        <div class="faq__item"><button class="faq__q">What makes the Everlove Mascara so special?</button><div class="faq__a"><p>Everlove Mascara was specially developed for mature eyelashes with a lightweight tubing formula that coats each lash individually. The precision brush helps separate lashes while adding length and volume, leaving them defined, lifted, and naturally elegant without clumps or heaviness.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Will it smudge or flake throughout the day?</button><div class="faq__a"><p>Everlove Mascara is designed to stay in place from morning to evening. Its tubing technology wraps each lash in tiny flexible tubes that resist smudging, flaking, humidity, and light moisture while remaining comfortable to wear.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Is Everlove Mascara suitable for sensitive eyes?</button><div class="faq__a"><p>Yes. The formula is gentle on the eyes and suitable for sensitive eyes and contact lens wearers. It is free from parabens and formulated for comfortable daily wear. If irritation occurs, discontinue use and consult a healthcare professional.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Is the Everlove Mascara waterproof?</button><div class="faq__a"><p>No. Everlove Mascara is not waterproof—it is water-resistant. We intentionally chose a water-resistant formula because waterproof mascaras can be more difficult to remove and may require excessive rubbing, which can be harsh on mature lashes. Everlove stays in place throughout the day and resists sweat, humidity, light rain, and watery eyes, while still removing easily with warm water for a gentler cleansing experience.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Will it help sparse or mature eyelashes look fuller?</button><div class="faq__a"><p>Yes. Everlove Mascara was developed specifically for mature, fine, and sparse lashes. Its ultra-slim precision brush features over 520 nano-bristles, allowing it to reach and coat even the shortest, finest lashes that many traditional brushes miss. The nano-bristles help separate and define each lash individually while evenly distributing the lightweight formula from root to tip.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Can I apply multiple coats?</button><div class="faq__a"><p>Absolutely. The buildable formula allows you to layer additional coats for more length and volume while helping lashes remain separated and defined. For best results, apply the next coat before the previous one has fully dried.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Will the mascara weigh down my lashes?</button><div class="faq__a"><p>No. Everlove Mascara features a lightweight tubing formula that lifts and defines lashes without making them feel heavy. Your lashes stay comfortable, flexible, and naturally lifted all day long.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Is Everlove Mascara hard to remove?</button><div class="faq__a"><p>No. Everlove Mascara is designed to stay in place all day thanks to its advanced tubing formula, yet it removes effortlessly with just warm water. Instead of smudging, the tubes gently slide off your lashes without the need for harsh rubbing or oil-based removers. This makes removal especially gentle on mature, delicate lashes.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Can I use an eyelash curler with Everlove Mascara?</button><div class="faq__a"><p>Yes. If you'd like a more curled lash look, you can use an eyelash curler before applying Everlove Mascara. Curling your lashes first helps enhance lift and creates a more defined, wide-awake appearance. To help protect your lashes, always use the curler before applying mascara.</p></div></div>
+        <div class="faq__item"><button class="faq__q">Which shade should I choose?</button><div class="faq__a"><p>Both shades deliver the same length, volume, and water-resistant performance—the only difference is the color. Intense Black creates a bold, dramatic look with maximum definition, while Balm Brown offers a softer, more natural finish that's especially flattering for fair complexions, blonde or gray hair, and everyday wear.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION: guarantee -->
+  <section class="section guarantee">
+    <div class="container">
+      <img loading="lazy" src="/assets/everlove/sp-moneyback-eyes.webp" alt="30-day money-back guarantee">
+      <h2>30-day money-back guarantee</h2>
+      <p style="max-width:520px;margin:0 auto 8px;color:var(--muted)">We are convinced that you will love our Everlove Mascara – but we understand if you are not quite sure yet. That's why we offer you a 30-day money-back guarantee.</p>
+      <a class="btn btn--lg" href="#" data-add-to-cart>ADD TO CART</a>
+    </div>
+  </section>
+
+  <!-- SECTION: bottom trust row -->
+  <section class="section">
+    <div class="container">
+      <div class="trust-row">
+        <div>
+          <svg viewBox="0 0 24 24"><path d="M1 3h13v13H1zM14 8h5l3 3v5h-8z"/><circle cx="5.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>
+          <strong>Free Shipping</strong><p>No matter where you are in the US — free shipping, nationwide.</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <strong>Do you need help?</strong><p>Our team is ready: support@facelove-cosmetics.com</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <strong>Secure payment</strong><p>PayPal, Amex, Apple Pay, Google Pay, Maestro, Mastercard, Visa &amp; Shop Pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: newsletter -->
+  <section class="newsletter">
+    <h3>Sign Up To Our Newsletter</h3>
+    <p>Sign up now and be the first to receive our exclusive offers and tips.</p>
+    <form onsubmit="return false;">
+      <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- SECTION: our mission -->
+  <section class="mission">
+    <h3>Our Mission</h3>
+    <p>FACELOVE was founded with a simple mission: to help women feel confident, beautiful, and comfortable in their own skin at every stage of life. We believe true beauty is not about changing who you are, but about celebrating what makes you unique.</p>
+    <p>That's why we create beauty products for modern women who want to enhance their natural radiance and embrace their beauty at every age. From our iconic mascara, loved by over 100,000 women, to our international expansion, our goal remains unchanged: to empower women to show up with confidence every day. This is the FACELOVE way.</p>
+  </section>
+
+  <!-- SECTION: footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <img src="/assets/everlove/logo.webp" alt="Facelove Cosmetics" width="120" style="filter:brightness(0) invert(1);margin-bottom:12px">
+        <p style="max-width:280px">Beauty products for modern women who want to embrace their natural radiance at every age.</p>
+      </div>
+      <nav aria-label="Shop"><strong style="color:#fff">Shop</strong>
+        <a href="/everlove/buy/">Everlove Mascara</a><a href="/everlove/">10 Reasons</a></nav>
+      <nav aria-label="Help"><strong style="color:#fff">Help</strong>
+        <a href="#">Track Your Order</a><a href="#">Contact Us</a><a href="#">FAQ</a><a href="#">Shipping Policy</a></nav>
+      <nav aria-label="Legal"><strong style="color:#fff">Legal</strong>
+        <a href="#">Privacy Policy</a><a href="#">Refund Policy</a><a href="#">Terms of Service</a></nav>
+      <div class="site-footer__legal">© 2026 Facelove Cosmetics. All rights reserved. Results may vary. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+    </div>
+  </footer>
+
+  <!-- SECTION: sticky mobile CTA -->
+  <div class="sticky-cta">
+    <a class="btn btn--block" href="#" data-add-to-cart>ADD TO CART — $29.95 (60% OFF)</a>
+  </div>
+
+  <!-- =============================================================
+       SECTION: sales-page JS (variant, bundle, accordion, checkout)
+       ============================================================= -->
+  <script src="/_shared/gallery.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var selectedColor = 'Intense Black';
+
+      // ----- color variant selector -----
+      var swatches = document.querySelectorAll('[data-variant] .swatch');
+      swatches.forEach(function (s) {
+        s.addEventListener('click', function () {
+          swatches.forEach(function (x) { x.classList.remove('is-active'); });
+          s.classList.add('is-active');
+          selectedColor = s.getAttribute('data-color');
+        });
+      });
+
+      // ----- bundle selector (visual only) -----
+      var bundles = document.querySelectorAll('[data-bundle]');
+      bundles.forEach(function (b) {
+        b.addEventListener('click', function () {
+          bundles.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+        });
+      });
+
+      // ----- Add to Cart -> CHECKOUT_URL (placeholder until replaced) -----
+      function checkoutUrl() {
+        var base = window.CHECKOUT_URL || '#';
+        var variants = window.CHECKOUT_VARIANTS || {};
+        var vid = variants[selectedColor];
+        if (base.indexOf('REPLACE') === -1 && vid) {
+          // if a per-variant id is provided, build a cart permalink
+          return base.replace(/\/cart\/[^/?#]+/, '/cart/' + vid + ':1');
+        }
+        return base;
+      }
+      document.querySelectorAll('[data-add-to-cart]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var url = checkoutUrl();
+          if (!url || url === '#' || url.indexOf('REPLACE') !== -1) {
+            alert('Checkout URL not set yet.\nReplace window.CHECKOUT_URL in this page with your real Shopify cart/checkout link.');
+            return;
+          }
+          window.location.href = url;
+        });
+      });
+
+      // ----- FAQ accordion -----
+      document.querySelectorAll('[data-faq] .faq__item').forEach(function (item) {
+        var q = item.querySelector('.faq__q');
+        var a = item.querySelector('.faq__a');
+        q.addEventListener('click', function () {
+          var open = item.classList.toggle('is-open');
+          a.style.maxHeight = open ? a.scrollHeight + 'px' : '0';
+        });
+      });
+    });
+  </script>
+  <!-- ANALYTICS -->
+</body>
+</html>

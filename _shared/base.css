@@ -1,0 +1,185 @@
+/* =============================================================
+   base.css  —  shared reset + design tokens + common components
+   Reused by every brand page under this domain.
+   Brand accent + fonts mirror the Everlove / Facelove source.
+   ============================================================= */
+
+/* ---- Design tokens ---- */
+:root {
+  --accent: #62279B;          /* Everlove purple */
+  --accent-dark: #4d1e7a;
+  --accent-tint: #f3ecfa;
+  --ink: #0b0b0b;             /* body + heading text */
+  --muted: #5c5c5c;
+  --line: #e6e6e6;
+  --bg: #ffffff;
+  --bg-soft: #faf8fc;
+  --sale: #d12f2f;           /* discount red */
+  --star: #f5a623;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --maxw: 720px;             /* single-column advertorial width */
+  --maxw-wide: 1120px;       /* sales-page width */
+  --font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.25; margin: 0 0 .5em; color: var(--ink); }
+p { margin: 0 0 1em; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ---- Layout helpers ---- */
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 18px; }
+.container--wide { max-width: var(--maxw-wide); }
+.section { padding: 34px 0; }
+.center { text-align: center; }
+
+/* ---- Announcement bar (rotating messages) ---- */
+.announce {
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  overflow: hidden;
+  height: 38px;
+}
+.announce__track { display: flex; height: 100%; }
+.announce__msg {
+  min-width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px;
+  animation: announce 8s linear infinite;
+}
+.announce__msg:nth-child(2) { animation-delay: 4s; }
+@keyframes announce {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ---- Minimal header ---- */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  position: sticky; top: 0; z-index: 40;
+}
+.site-header__inner {
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px 18px; position: relative;
+}
+.site-header__logo img { height: 30px; width: auto; }
+.site-header__back {
+  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+  font-size: 20px; color: var(--ink);
+}
+
+/* ---- Countdown / offer bar ---- */
+.offerbar {
+  background: var(--accent-tint);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  padding: 12px 18px;
+}
+.offerbar__label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-dark); }
+.countdown {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700; font-size: 26px; color: var(--ink);
+  margin: 4px 0 8px;
+}
+.countdown span[data-cd] {
+  background: var(--ink); color: #fff; border-radius: 6px;
+  padding: 4px 8px; min-width: 42px; display: inline-block; text-align: center;
+}
+.countdown .sep { color: var(--ink); font-weight: 700; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block; text-align: center;
+  background: var(--accent); color: #fff;
+  font-weight: 700; font-size: 16px;
+  padding: 15px 26px; border: none; border-radius: 999px;
+  transition: background .15s ease, transform .05s ease;
+  letter-spacing: .01em;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn:active { transform: translateY(1px); }
+.btn--block { display: block; width: 100%; }
+.btn--lg { font-size: 18px; padding: 17px 30px; }
+.btn--pulse { animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(98,39,155,.35); }
+  50% { box-shadow: 0 0 0 12px rgba(98,39,155,0); }
+}
+
+/* ---- Sticky mobile CTA ---- */
+.sticky-cta {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: #fff; border-top: 1px solid var(--line);
+  padding: 10px 14px; display: none;
+  box-shadow: 0 -6px 18px rgba(0,0,0,.08);
+}
+.sticky-cta .btn { padding: 13px; font-size: 16px; }
+@media (max-width: 767px) { .sticky-cta { display: block; } body { padding-bottom: 74px; } }
+
+/* ---- Testimonial / content slider ---- */
+.slider { position: relative; overflow: hidden; }
+.slider__viewport { overflow: hidden; }
+.slider__track { display: flex; transition: transform .35s ease; }
+.slider__track > [data-slide] { min-width: 100%; }
+.slider__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.9); border: 1px solid var(--line);
+  font-size: 20px; color: var(--ink); display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+}
+.slider__nav--prev { left: 6px; }
+.slider__nav--next { right: 6px; }
+.slider__counter { text-align: center; font-size: 13px; color: var(--muted); margin-top: 10px; font-weight: 600; }
+.slider__dots { display: flex; gap: 7px; justify-content: center; margin-top: 10px; }
+.slider__dot { width: 9px; height: 9px; border-radius: 50%; border: none; background: #d3c6e4; padding: 0; }
+.slider__dot.is-active { background: var(--accent); }
+
+/* ---- Star rating ---- */
+.stars { color: var(--star); letter-spacing: 2px; font-size: 15px; }
+
+/* ---- Newsletter ---- */
+.newsletter { background: #000; color: #fff; text-align: center; padding: 56px 18px; }
+.newsletter h3 { color: #fff; font-size: 22px; }
+.newsletter p { color: rgba(255,255,255,.8); max-width: 480px; margin: 0 auto 20px; }
+.newsletter form { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; }
+.newsletter input {
+  flex: 1 1 200px; padding: 13px 14px; border-radius: 999px; border: none;
+  font-family: inherit; font-size: 15px;
+}
+.newsletter button { border-radius: 999px; background: var(--accent); color: #fff; border: none; padding: 13px 22px; font-weight: 700; }
+
+/* ---- Mission ---- */
+.mission { background: var(--bg-soft); text-align: center; padding: 56px 18px; }
+.mission h3 { font-size: 22px; }
+.mission p { max-width: 620px; margin: 0 auto 1em; color: var(--muted); }
+
+/* ---- Footer ---- */
+.site-footer { background: #111; color: rgba(255,255,255,.75); padding: 40px 18px 90px; font-size: 14px; }
+.site-footer__inner { max-width: var(--maxw-wide); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 26px 48px; justify-content: space-between; }
+.site-footer a { color: rgba(255,255,255,.75); }
+.site-footer a:hover { color: #fff; }
+.site-footer nav { display: flex; flex-direction: column; gap: 8px; }
+.site-footer__legal { width: 100%; border-top: 1px solid rgba(255,255,255,.15); padding-top: 18px; font-size: 12px; color: rgba(255,255,255,.5); }
+
+/* ---- Utility ---- */
+.pill { display: inline-block; background: var(--sale); color: #fff; font-weight: 700; font-size: 12px; padding: 3px 10px; border-radius: 999px; }
