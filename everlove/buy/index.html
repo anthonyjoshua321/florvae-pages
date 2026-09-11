@@ -61,6 +61,8 @@
     .swatch.is-active { border-color: var(--accent); background: var(--accent-tint); }
     .colors { display: grid; gap: 12px; margin-bottom: 18px; }
     .prod-info [data-add-to-cart] { margin-top: 6px; }
+    /* no sticky bar on this page -> reclaim the mobile bottom padding from base.css */
+    @media (max-width: 767px) { body { padding-bottom: 0; } }
     .color-item__label { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 
     /* bundle */
@@ -252,11 +254,11 @@
         <div class="opt-label">While supplies last</div>
         <div class="bundles" data-bundles>
           <div class="bundle" data-bundle data-qty="1">
-            <div class="bundle__row"><span class="bundle__name">1 Everlove Mascara</span><span class="bundle__price">$29.95 <s>$60.00</s></span></div>
+            <div class="bundle__row"><span class="bundle__name">1 Everlove Mascara <span class="bundle__tag">50% OFF</span></span><span class="bundle__price">$29.95 <s>$60.00</s></span></div>
           </div>
           <div class="bundle is-active" data-bundle data-qty="2">
-            <div class="bundle__row"><span class="bundle__name">2 Everlove Mascaras <span class="bundle__tag">SAVE $20</span></span><span class="bundle__price">$39.95 <s>$130.00</s></span></div>
-            <div class="bundle__perks">Limited-Time Offer · Save $20 · + FREE Shipping</div>
+            <div class="bundle__row"><span class="bundle__name">2 Everlove Mascaras <span class="bundle__tag">69% OFF</span></span><span class="bundle__price">$39.95 <s>$130.00</s></span></div>
+            <div class="bundle__perks">Limited-Time Offer · + FREE Shipping</div>
           </div>
         </div>
 
@@ -487,11 +489,6 @@
       <div class="site-footer__legal">© 2026 Florvae. All rights reserved. Ships to the US only. Results may vary. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
     </div>
   </footer>
-
-  <!-- SECTION: sticky mobile CTA -->
-  <div class="sticky-cta">
-    <a class="btn btn--block" href="#" data-add-to-cart>ADD TO CART — $29.95 (60% OFF)</a>
-  </div>
 
   <!-- =============================================================
        SECTION: sales-page JS (variant, bundle, accordion, checkout)
