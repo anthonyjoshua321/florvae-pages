@@ -188,10 +188,13 @@
       funnelId: "funnelv2_93cdac4eb520",
       checkoutUrl: "https://checkout.florvae.com/checkout",
       currency: "USD",
-      // shade -> PayFresco variant + price ids
+      // shade -> PayFresco variant + price ids.
+      // price1 = single-unit price ($29.95). price2 = 2-pack unit price ($65 each);
+      // the "Everlove 2-Pack" promo then takes -$90.05 so 2 x $65 = $130 -> $39.95,
+      // making the checkout show the $130 base like the page bundle.
       variants: {
-        "Intense Black": { variantId: "variant_32e20139f0cf", priceId: "price_a8a54296054e" },
-        "Balm Brown":    { variantId: "variant_a08e67406c9a", priceId: "price_14d6fc7c2676" }
+        "Intense Black": { variantId: "variant_32e20139f0cf", price1: "price_a8a54296054e", price2: "price_a2467e32808b" },
+        "Balm Brown":    { variantId: "variant_a08e67406c9a", price1: "price_14d6fc7c2676", price2: "price_84c9ea0f0eb3" }
       }
     };
   </script>
@@ -572,11 +575,12 @@
       function buildCheckoutUrl() {
         var cfg = window.PAYFRESCO;
         var order = window.getOrder();               // { qty, shades: [...] }
+        var twoPack = order.qty >= 2;                // use $65 base price for the 2-pack
         var counts = {};
         order.shades.forEach(function (s) { counts[s] = (counts[s] || 0) + 1; });
         var items = Object.keys(counts).map(function (shade) {
           var v = cfg.variants[shade];
-          return { variantId: v.variantId, quantity: counts[shade], priceId: v.priceId };
+          return { variantId: v.variantId, quantity: counts[shade], priceId: twoPack ? v.price2 : v.price1 };
         });
         var p = new URLSearchParams();
         p.set('currency', cfg.currency);
