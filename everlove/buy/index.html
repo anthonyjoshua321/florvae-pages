@@ -59,7 +59,8 @@
     .swatch { display: flex; align-items: center; gap: 8px; border: 2px solid var(--line); border-radius: 10px; padding: 9px 14px; font-weight: 600; font-size: 14px; background: #fff; }
     .swatch .dot { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.15); }
     .swatch.is-active { border-color: var(--accent); background: var(--accent-tint); }
-    .colors { display: grid; gap: 12px; margin-bottom: 4px; }
+    .colors { display: grid; gap: 12px; margin-bottom: 18px; }
+    .prod-info [data-add-to-cart] { margin-top: 6px; }
     .color-item__label { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 
     /* bundle */
@@ -108,14 +109,18 @@
     .bblock__num { font-size: 40px; font-weight: 800; color: var(--accent-tint); line-height: 1; }
     .bblock h3 { font-size: 22px; margin: 2px 0 14px; }
     .bblock__img { border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 16px; }
+    .bblock .btn { margin-top: 10px; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 16px; }
     .feature-list li { position: relative; padding-left: 30px; margin-bottom: 10px; font-weight: 600; }
     .feature-list li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 12px; display: flex; align-items: center; justify-content: center; }
     @media (min-width: 768px) {
-      .bblock { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+      .bblock { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 44px 0; }
       .bblock__media { order: 2; }
       .bblock:nth-child(even) .bblock__media { order: 0; }
-      .bblock__img { margin: 0; }
+      .bblock__img { margin: 0 auto; max-width: 440px; }
+      .bblock .btn { margin-top: 14px; }
+      .section { padding: 48px 0; }
+      .prod-info { padding-left: 8px; }   /* a little breathing room from the gallery */
     }
 
     /* ingredient comparison */
