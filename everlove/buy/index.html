@@ -163,23 +163,29 @@
 </head>
 <body>
 
-  <!-- Checkout config: REPLACE the placeholder below with your real Shopify cart permalink / checkout URL -->
+  <!-- ============================================================
+       PayFresco / TagadaPay checkout mapping (Florvae store).
+       "Add to Cart" builds a checkout/init link from the shopper's
+       chosen shade(s) + quantity and redirects to the hosted checkout
+       at checkout.florvae.com. Product: Everlove Mascara.
+       NOTE ON THE 2-PACK: each mascara is priced $29.95, so a 2-pack
+       goes to checkout as two $29.95 line items ($59.90) UNLESS a
+       "2 units = $39.95" promotion is applied in PayFresco. Set/confirm
+       that promotion in PayFresco so the 2-pack charges $39.95.
+       ============================================================ -->
   <script>
-    /* ============================================================
-       ▶▶  CHECKOUT_URL PLACEHOLDER  —  REPLACE BEFORE GOING LIVE  ◀◀
-       Every "Add to Cart" button sends the buyer here for now.
-       Use a Shopify cart permalink, e.g.
-         https://your-store.myshopify.com/cart/VARIANT_ID:1
-       or the live product URL.
-       ------------------------------------------------------------
-       The shopper picks quantity (bundle) AND a shade per unit, so a
-       2-pack can mix shades. window.getOrder() returns { qty, shades },
-       e.g. { qty: 2, shades: ["Intense Black","Balm Brown"] }.
-       Later, map each shade to its Shopify variant ID below and build a
-       multi-line cart permalink (…/cart/BLACK_ID:1,BROWN_ID:1).
-       ============================================================ */
-    window.CHECKOUT_URL = "REPLACE_WITH_CHECKOUT_URL";
-    window.CHECKOUT_VARIANTS = { "Intense Black": "", "Balm Brown": "" };
+    window.PAYFRESCO = {
+      base: "https://app.tagadapay.com/api/public/v1/checkout/init",
+      storeId: "store_9aefd1aa58ca",
+      funnelId: "funnelv2_93cdac4eb520",
+      checkoutUrl: "https://checkout.florvae.com/checkout",
+      currency: "USD",
+      // shade -> PayFresco variant + price ids
+      variants: {
+        "Intense Black": { variantId: "variant_32e20139f0cf", priceId: "price_a8a54296054e" },
+        "Balm Brown":    { variantId: "variant_a08e67406c9a", priceId: "price_14d6fc7c2676" }
+      }
+    };
   </script>
 
   <!-- SECTION: announcement bar -->
@@ -556,21 +562,32 @@
       });
       renderColors();
 
-      // ----- Add to Cart -> CHECKOUT_URL -----
-      // Checkout/variant mapping is intentionally deferred: window.getOrder()
-      // returns { qty, shades } so the real per-variant cart link can be built later.
-      function checkoutUrl() {
-        return window.CHECKOUT_URL || '#';
+      // ----- Add to Cart -> PayFresco/TagadaPay checkout -----
+      // Builds a checkout/init link from the shopper's chosen shade(s) + quantity.
+      // Same shades are merged into one line with a quantity; mixed shades become
+      // separate lines (so a 2-pack can be 1 Intense Black + 1 Balm Brown).
+      function buildCheckoutUrl() {
+        var cfg = window.PAYFRESCO;
+        var order = window.getOrder();               // { qty, shades: [...] }
+        var counts = {};
+        order.shades.forEach(function (s) { counts[s] = (counts[s] || 0) + 1; });
+        var items = Object.keys(counts).map(function (shade) {
+          var v = cfg.variants[shade];
+          return { variantId: v.variantId, quantity: counts[shade], priceId: v.priceId };
+        });
+        var p = new URLSearchParams();
+        p.set('currency', cfg.currency);
+        p.set('items', JSON.stringify(items));
+        p.set('storeId', cfg.storeId);
+        p.set('funnelId', cfg.funnelId);
+        p.set('checkoutUrl', cfg.checkoutUrl);
+        p.set('includeCheckoutToken', 'checkoutToken');
+        return cfg.base + '?' + p.toString();
       }
       document.querySelectorAll('[data-add-to-cart]').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          var url = checkoutUrl();
-          if (!url || url === '#' || url.indexOf('REPLACE') !== -1) {
-            alert('Checkout URL not set yet.\nReplace window.CHECKOUT_URL in this page with your real Shopify cart/checkout link.');
-            return;
-          }
-          window.location.href = url;
+          window.location.href = buildCheckoutUrl();
         });
       });
 
